@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  onSubmit(MyForm){
-    console.log(MyForm.value);
-    console.log(this.email);
-    this.formValue= MyForm.value;
-    MyForm.reset();
+ 
+  name = 'Sarah';
 
-  }
+  email='sayraheke1993@gmail.com';
+  formValue;
+  register =[];
+  
 
   constructor() { }
 
@@ -27,11 +27,14 @@ export class FormComponent implements OnInit {
     //   this.name="newSarah3";
     // },20000);
   }
+  onSubmit(MyForm){
+    console.log(MyForm.value);
+    console.log(this.email);
+    this.formValue= MyForm.value;
+    this.register.push(this.formValue);
+    MyForm.reset();
 
-  name = 'Sarah';
+  }
 
-  email='sayraheke1993@gmail.com';
-  formValue;
-  
 
 }

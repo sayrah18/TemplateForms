@@ -46,11 +46,15 @@
     </div>
        <div class="col-md-12">
            <div *ngIf="formValue">
-               <p>name: {{formValue.name}}</p>
-               <p>email: {{formValue.email}}</p>
-               <p>gender:{{formValue.gender}}</p>
-               <p>state:{{formValue.state}}</p>
-               <p>bio:{{formValue.bio}}</p>
+               
+               <div *ngFor="let item of register; let i= index;">
+                   <p>name: {{item.name}}</p>
+                <p>email: {{item.email}}</p>
+                <p>gender:{{item.gender}}</p>
+                <p>state:{{item.state}}</p>
+                <p>bio:{{item.bio}}</p>
+            <hr>
+        </div>
            </div>
        </div>
    </div>
