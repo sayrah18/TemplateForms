@@ -1,0 +1,59 @@
+<div class="container">
+    <p>email: {{email}}</p>
+    <p>name: {{name}}</p>
+    <div>
+        <input type="button"(click)="formValue=null" value="Reset form">
+    </div>
+   <div class="row">
+       <div class="col-md-12">
+           <div *ngIf="!formValue">
+           <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div>
+       <label for="Name">Name</label><br>
+        <input type="text" name="name" [ngModel]="name" required>
+        <!-- <span *ngIf="f.controls['name'].hasError('valid')">name is required</span> -->
+        <br>
+        </div>  
+       
+       <div> <label for="Email">Email</label><br>
+        <input type="email" name="email"[(ngModel)]="email"><br>
+        </div>
+
+        <div>
+        <label for ="Gender">Gender</label><br>
+        <input type="radio" name="gender" value="male" ngModel> Male<br>
+      <input type="radio" name="gender" value="female"ngModel> Female<br>
+      </div>
+
+      <div>
+      <label for="State">State</label><br>
+      <input type="state" name="state" ngModel><br>
+      </div>
+<br>
+   <div>
+    <label for="Bio">Bio</label>
+    <textarea
+       name="bio" rows="10" cols="30" ngModel>
+   
+        
+        </textarea>
+        </div>
+        
+           <div> <input type="submit" value="Submit" [disabled]="!f.valid">
+        </div>
+        </form>
+        </div>
+    </div>
+       <div class="col-md-12">
+           <div *ngIf="formValue">
+               <p>name: {{formValue.name}}</p>
+               <p>email: {{formValue.email}}</p>
+               <p>gender:{{formValue.gender}}</p>
+               <p>state:{{formValue.state}}</p>
+               <p>bio:{{formValue.bio}}</p>
+           </div>
+       </div>
+   </div>
+   
+     
+</div>
